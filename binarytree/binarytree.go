@@ -1,6 +1,6 @@
 package binarytree
 
-import "github.com/shweta1207/go/queue"
+import "../queue"
 
 type BinaryTree struct {
 	root *Node

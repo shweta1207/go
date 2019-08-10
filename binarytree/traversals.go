@@ -3,7 +3,7 @@ package binarytree
 import (
 	"fmt"
 
-	"github.com/shweta1207/go/queue"
+	"../queue"
 )
 
 func (b *BinaryTree) InOrder() {

@@ -28,14 +28,16 @@ func (h *Heap) GetMin() int {
 	return h.heap[0]
 }
 
-func BuildHeapFromArray(arr []int, cap int) *Heap {
-	h:=&Heap{
-		heap:make([]int,len(arr),cap) ,
+func BuildMaxHeapFromArray(arr []int, cap int) *Heap {
+	h := &Heap{
+		heap: make([]int, len(arr), cap),
 	}
-	n:=len(arr)
-	h.heap[:n]=arr[:n]
-	for i:=n/2-1;i>=0;i--{
-		h.MinHeapify(i)
+	n := len(arr)
+	for i := range arr {
+		h.heap[i] = arr[i]
+	}
+	for i := n/2 - 1; i >= 0; i-- {
+		h.MaxHeapify(i)
 	}
 	return h
 }
@@ -60,7 +62,6 @@ func (h *Heap) MinHeapify(index int) {
 		h.MinHeapify(smallest)
 	}
 }
-
 
 func (h *Heap) ExtractMin() {
 	n := h.Size()
