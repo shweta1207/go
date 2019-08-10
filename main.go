@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"reflect"
 
+	"./binarytree"
 	"./queue" //local usage
 	"./stack"
 )
@@ -56,9 +57,9 @@ func main() {
 	fmt.Println(s.Empty(), s.Size())
 
 	type MyStruct struct {
-		val int
+		val  int
 		name string
-		Par *MyStruct
+		Par  *MyStruct
 	}
 
 	// s.Push(MyStruct{
@@ -73,16 +74,53 @@ func main() {
 	// fmt.Println(s.Size())
 
 	s.Push(&MyStruct{
-		val:5,
+		val:  5,
 		name: "test",
 	})
 	fmt.Println(s.Size())
-	vals,ok:=s.Top().(*MyStruct)
-	fmt.Println(vals,ok)
-	fmt.Println(vals.val,vals.name)
+	vals, ok := s.Top().(*MyStruct)
+	fmt.Println(vals, ok)
+	fmt.Println(vals.val, vals.name)
 	s.Pop()
 	fmt.Println(s.Size())
 
+	b := binarytree.BinaryTree{}
+	b.Insert(2)
+	b.Insert(3)
+	b.Insert(4)
+	b.Insert(5)
+	b.Insert(6)
+	b.LevelOrder()
+	fmt.Println("")
 
+	b.InOrder()
+	fmt.Println("")
+
+	b.PreOrder()
+	fmt.Println("")
+
+	b.PostOrder()
+	fmt.Println("\n\n\n\n")
+
+	bst := binarytree.BinaryTree{}
+	bst.InsertBST(7)
+	bst.InsertBST(9)
+	bst.InsertBST(4)
+	bst.InsertBST(5)
+	bst.InsertBST(6)
+	bst.LevelOrder()
+	fmt.Println("")
+
+	bst.InOrder()
+	fmt.Println("")
+
+	bst.PreOrder()
+	fmt.Println("")
+
+	bst.PostOrder()
+	fmt.Println("")
+
+	fmt.Println(bst.InorderSuccessor(7))
+	fmt.Println(bst.InorderPredeccessor(7))
 
 }
