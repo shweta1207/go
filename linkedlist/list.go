@@ -1,6 +1,9 @@
 package linkedlist
 
-import "fmt"
+import (
+	"fmt"
+	"reflect"
+)
 
 type List struct {
 	head   *Node
@@ -8,11 +11,11 @@ type List struct {
 }
 
 type Node struct {
-	val  int
+	val  interface{}
 	next *Node
 }
 
-func (l *List) InsertNode(val int) { // insertion at beginning of list
+func (l *List) InsertNode(val interface{}) { // insertion at beginning of list
 
 	if l.length == 0 {
 		l.head = &Node{
@@ -30,7 +33,7 @@ func (l *List) InsertNode(val int) { // insertion at beginning of list
 
 }
 
-func (l *List) InsertAfterNode(prev *Node, val int) { // insertion after a given node
+func (l *List) InsertAfterNode(prev *Node, val interface{}) { // insertion after a given node
 	if prev == nil {
 		return
 	}
@@ -54,10 +57,10 @@ func (l *List) TraverseList() { // print all the elements
 	}
 }
 
-func (l *List) FindValue(val int) bool { // find if a value is present
+func (l *List) FindValue(val interface{}) bool { // find if a value is present
 	curr := l.head
 	for curr != nil {
-		if curr.val == val {
+		if reflect.ValueOf(curr.val) == reflect.ValueOf(val) {
 			return true
 		}
 	}
