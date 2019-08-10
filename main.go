@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"reflect"
 
-	"./heap"
-	"./sorting"
 	"github.com/shweta1207/go/binarytree"
+	"github.com/shweta1207/go/heap"
 	"github.com/shweta1207/go/queue" //local usage
+	"github.com/shweta1207/go/sorting"
 	"github.com/shweta1207/go/stack"
 )
 
@@ -129,6 +129,6 @@ func main() {
 	sorting.SelectionSort(arr)
 	fmt.Println(arr)
 	arr = []int{4, 7, 9, 45, 3}
-	h := heap.BuildHeapFromArray(arr, 20)
-	h.HeapSort()
+	sorting.HeapSort(arr)
+	fmt.Println(arr)
 }
