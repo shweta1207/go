@@ -1,6 +1,6 @@
 package binarytree
 
-//import "../queue"
+import "../queue"
 
 type BinaryTree struct {
 	root *Node
@@ -24,6 +24,6 @@ func (b *BinaryTree) Insert(val int) { //insert node in level order traversal fa
 		return
 	}
 
-	//	q := &queue.Queue{}
+	q := &queue.Queue{}
 
 }

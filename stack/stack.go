@@ -5,11 +5,11 @@ type Stack struct {
 	size int
 }
 type Node struct {
-	val  int
+	val  interface{}
 	next *Node
 }
 
-func (s *Stack) Push(val int) {
+func (s *Stack) Push(val interface{}) {
 	node := &Node{
 		val: val,
 	}
@@ -18,7 +18,7 @@ func (s *Stack) Push(val int) {
 		s.head = node
 		return
 	}
-	node.next = s.head.next
+	node.next = s.head
 	s.head = node
 
 }
@@ -31,7 +31,7 @@ func (s *Stack) Pop() {
 	s.size--
 }
 
-func (s *Stack) Top() int {
+func (s *Stack) Top() interface{} {
 	if s.head == nil {
 		return 0
 	}

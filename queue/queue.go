@@ -7,11 +7,11 @@ type Queue struct {
 }
 
 type Node struct {
-	val  int
+	val  interface{}
 	next *Node
 }
 
-func (q *Queue) Push(val int) {
+func (q *Queue) Push(val interface{}) {
 	node := &Node{
 		val: val,
 	}
@@ -39,15 +39,15 @@ func (q *Queue) Pop() {
 	q.size--
 }
 
-func (q *Queue) Front() int {
+func (q *Queue) Front() interface{} {
 	if q.front == nil {
-		return 0
+		return nil
 	}
 	return q.front.val
 }
-func (q *Queue) Rear() int {
+func (q *Queue) Rear() interface{} {
 	if q.front == nil {
-		return 0
+		return nil
 	}
 	return q.rear.val
 }

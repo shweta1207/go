@@ -60,24 +60,33 @@ func (l *List) TraverseList() { // print all the elements
 func (l *List) FindValue(val interface{}) bool { // find if a value is present
 	curr := l.head
 	for curr != nil {
-		if reflect.ValueOf(curr.val) == reflect.ValueOf(val) {
+	   	if reflect.TypeOf(curr.val) == reflect.TypeOf(val){
+		    if reflect.ValueOf(curr.val) == reflect.ValueOf(val) {
 			return true
 		}
 	}
+}
 	return false
 }
 
 // deleting a given key
 func (l *List) DeleteNode(val int) {
-	prev := &Node{}
+	var prev *Node = nil
 	curr := l.head
-	for curr != nil && curr.val != val {
+	for curr != nil{
+        if reflect.TypeOf(curr.val) == reflect.TypeOf(val) && reflect.ValueOf(curr.val) == reflect.ValueOf(val) {
+			break
+		}
 		curr = curr.next
 	}
 	if curr == nil {
 		return
 	}
+	if prev==nil{
+		l.head=curr.next
+	} else {
 	prev.next = curr.next
+	}
 }
 
 // deleting node at a given position
