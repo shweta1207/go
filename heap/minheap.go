@@ -30,13 +30,14 @@ func (h *Heap) GetMin() int {
 
 func BuildHeapFromArray(arr []int, cap int) *Heap {
 	h:=&Heap{
-		heap:make([]int,len(arr),cap),
+		heap:make([]int,len(arr),cap) ,
 	}
 	n:=len(arr)
-	h[:n]=arr[:n]
+	h.heap[:n]=arr[:n]
 	for i:=n/2-1;i>=0;i--{
 		h.MinHeapify(i)
 	}
+	return h
 }
 
 // Assumes both its children are min heaps
