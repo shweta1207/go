@@ -1,6 +1,6 @@
 package sorting
 
-import "../heap"
+import "github.com/shweta1207/go/heap"
 
 func HeapSort(arr []int) {
 	h := heap.BuildHeapFromArray(arr, len(arr))

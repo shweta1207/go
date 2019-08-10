@@ -30,7 +30,7 @@ func (h *Heap) GetMin() int {
 
 func BuildHeapFromArray(arr []int, cap int) *Heap {
 	h:=&Heap{
-		heap:make([]int,len(arr),cap)
+		heap:make([]int,len(arr),cap),
 	}
 	n:=len(arr)
 	h[:n]=arr[:n]
@@ -60,11 +60,6 @@ func (h *Heap) MinHeapify(index int) {
 	}
 }
 
-func swap(a *int, b *int) {
-	temp := *a
-	*a = *b
-	*b = temp
-}
 
 func (h *Heap) ExtractMin() {
 	n := h.Size()
